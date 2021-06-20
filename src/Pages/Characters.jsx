@@ -1,6 +1,7 @@
 import React from 'react'
 import imgLogo from './images/logo.png'
 import CharacterCard from '../Components/CharacterCard'
+import Error from '../Components/Error'
 
 
 function useData(){
@@ -48,24 +49,26 @@ function useData(){
 
 function MainPage(){
 
-
     const {data,loading,nextPage,fetchData,error} = useData()
-  
+
     return (
+
       <div className="container">
         <div className="App">
   
           <img className="Logo" src={imgLogo} alt="Rick & Morty"/>
+
           <ul className="row">
 
-            {data.map((character)=>(
+            {!error && data.map((character)=>(
               <CharacterCard character={character} key={character.id}/>
             ))}
 
           </ul>
-            
+
           {loading && <h1 className="text-center">Loading...</h1>}
-          {!loading && nextPage && <button onClick={()=>fetchData()}>Load More</button>}
+          {!loading && error && <Error error={error}/>}
+          {!loading && !error && nextPage && <button onClick={()=>fetchData()}>Load More</button>}
             
         </div>
       </div>
