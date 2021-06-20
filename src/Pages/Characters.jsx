@@ -64,7 +64,7 @@ function MainPage(){
 
           </ul>
             
-          {loading && <h2 className="text-center">Loading...</h2>}
+          {loading && <h1 className="text-center">Loading...</h1>}
           {!loading && nextPage && <button onClick={()=>fetchData()}>Load More</button>}
             
         </div>
