@@ -2,7 +2,6 @@ import React from 'react'
 import imgLogo from './images/logo.png'
 import CharacterCard from '../Components/CharacterCard'
 import Error from '../Components/Error'
-import api from '../utils/api'
 
 
 //Hook personalizado
@@ -76,7 +75,6 @@ function MainPage(){
     return (
       <div className="container">
         <div className="App">
-  
           <img className="Logo" src={imgLogo} alt="Rick & Morty"/>
 
           <ul className="row">
